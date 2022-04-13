@@ -50,12 +50,10 @@ function LandingPage() {
             </motion.h1>
             <GitHubIcon
                sx={{
-                  color: "rgba(166, 218, 255, 1)",
+                  color: "primary.main",
                   marginTop: "12%",
                   mixBlendMode: "color-dodge",
                   fontSize: "7vw",
-                  // stroke: "black",
-                  // strokeWidth: "0.4",
                }}
             />
             <motion.div
@@ -71,7 +69,7 @@ function LandingPage() {
                   variant="outlined"
                   sx={{
                      "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "rgba(166, 218, 255, 1)",
+                        borderColor: "primary.main",
                         borderWidth: "4px",
                         borderRadius: "25px",
                         color: "white",
@@ -86,13 +84,11 @@ function LandingPage() {
                sx={{
                   color: "white",
                   marginBottom: "25%",
-                  backgroundColor: "rgba(166, 218, 255, 1)",
+                  backgroundColor: "primary.main",
                   mixBlendMode: "color-dodge",
                   borderRadius: "50px",
                   fontSize: "0.9vw",
                   fontWeight: "bolder",
-                  // textShadow:
-                  //    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
                }}
             >
                {secondTransition ? 'Search User' : "Start"}
