@@ -1,51 +1,48 @@
 h1 {
-    /* color: white; */
-    position: fixed;
-    /* text-transform:uppercase; */
-    font-weight: bolder;
-    mix-blend-mode: color-dodge;
-    color: rgba(166, 218, 255, 1);
-    font-size: 7vw;
-    -webkit-text-stroke: 2px rgb(0, 0, 0);
+   /* color: white; */
+   position: fixed;
+   /* text-transform:uppercase; */
+   font-weight: bolder;
+   mix-blend-mode: color-dodge;
+   color: rgba(166, 218, 255, 1);
+   font-size: 7vw;
 }
 
 .welcome {
-    top: 33%;
-    left:9%;
+   top: 33%;
+   left: 9%;
 }
 
 .gitCave {
-    top: 45%;
-    left: 15.2%;
+   top: 45%;
+   left: 15.2%;
 }
 
 .left {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    animation-name: leftTransition;
-    animation-duration: 2s;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   animation-duration: 2s;
 }
 
 .right {
-    background-color: rgba(166, 218, 255, 1);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   background-color: rgba(166, 218, 255, 1);
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .landingPage {
-    display: flex;
+   display: flex;
 }
 
 .pcWork {
-    width: 25vw;
+   width: 25vw;
 }
 
 .git {
-    color: rgb(255, 149, 0);
+   color: rgb(237, 151, 86);
 }
-
