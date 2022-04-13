@@ -1,14 +1,14 @@
-import logo from '../logo.svg';
+import React from 'react';
 import '../App.css';
-import Counter from "../components/Counter";
+import LandingPage from '../components/LandingPage';
 
 function App() {
-    // function that increments the counter from redux state
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <Counter/>
+                {/* <img src={logo} className="App-logo" alt="logo"/>
+                <Counter/> */}
+                <LandingPage />
             </header>
         </div>
     );
