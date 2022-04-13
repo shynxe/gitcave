@@ -1,12 +1,16 @@
-
+import logo from '../logo.svg';
 import '../App.css';
-import RepositoryList from '../components/RepositoryList';
-
+import Counter from "../components/Counter";
+import UserExample from "../components/UserExample";
 
 function App() {
-    // function that increments the counter from redux state
     return (
-        <RepositoryList />
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo"/>
+                <UserExample/>
+            </header>
+        </div>
     );
 }
 
