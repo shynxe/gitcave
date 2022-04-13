@@ -10,6 +10,7 @@ import theme from "./config/theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PersistGate} from "redux-persist/integration/react";
 
+
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
