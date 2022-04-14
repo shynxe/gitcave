@@ -20,6 +20,24 @@ export const setUserAsync = createAsyncThunk(
     }
 );
 
+export const setPageAsync = createAsyncThunk(
+    'user/setPageAsync',
+    async (username, page) => {
+        console.log("the url is: ", `https://api.github.com/users/${username}/repos?` + new URLSearchParams({
+            sort: 'updated',
+            per_page: 30,
+            page: page,
+        }));
+        console.log('page in setPageAsync: ', page);
+        return await fetch(`https://api.github.com/users/${username}/repos?` + new URLSearchParams({
+                sort: 'updated',
+                per_page: 30,
+                page: page,
+            })).then((res) => res.json()).then((res) => console.log(res))
+    }
+);
+
+
 export const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -48,6 +66,9 @@ export const userSlice = createSlice({
             state.value.follower_count = action.payload.followers;
             state.value.following_count = action.payload.following;
         },
+        [setPageAsync.fulfilled]: (state, action) => {
+            state.repos = action.payload;
+        }
     },
 });
 

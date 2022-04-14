@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import RepositoryItem from "./RepositoryItem";
 import Pagination from "@mui/material/Pagination";
-import { useSelector } from "react-redux";
-import { selectUser } from "../slices/userSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {selectUser, setUserAsync, setPageAsync} from "../slices/userSlice";
 import useDebounce from "../utils/useDebounce";
 import SearchInput from "./SearchInput";
 
 
 const RepositoryList = () => {
   const [repos, setRepos] = useState([]);
-  const [page, setPage] = useState(1);
   const [search, setSearch] = useState(null);
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   const debouncedSearch = useDebounce(search, 500);
 
@@ -28,8 +27,9 @@ const RepositoryList = () => {
     if (debouncedSearch) createLink();
   }, [debouncedSearch]);
 
-  const handleChange = (page) => {
-    setPage(page);
+  const handleChange = (user, page) => {
+    console.log('page from handleChange: ', page)
+    dispatch(setPageAsync(user, page));
   };
 
   return (
@@ -40,6 +40,7 @@ const RepositoryList = () => {
         {user?.repos.map((repo) => {
           return (
             <RepositoryItem
+              key={repo.id}
               name={repo.name}
               url={repo.svn_url}
               updated={repo.updated_at}
@@ -54,14 +55,16 @@ const RepositoryList = () => {
           );
         })}
         </div>
-      <Pagination
-        onChange={(e) => handleChange(e.target.textContent)}
+      <Pagination 
+        onChange={(e) => { handleChange(user.username, e.target.textContent); console.log('page from pagination: ', e.target.textContent, 'username: ', user.username)}}
         style={{
           display: "flex",
           justifyContent: "center",
+          margin: '20px',
         }}
         count={Math.floor(user.repo_count / 30 + 1)}
         shape="rounded"
+        color="primary"
       />
     </>
   );

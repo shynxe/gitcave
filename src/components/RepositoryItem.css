@@ -1,5 +1,4 @@
 .container{
-    width: 800px;
     margin: 10px;
 }
 
@@ -23,7 +22,7 @@
     border: 1px solid grey;
     border-radius: 2em;
     color: #57606a;
-    margin-bottom: 4px;
+    margin: 5px;
 }
 
 .repo-details{
