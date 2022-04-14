@@ -5,7 +5,6 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import {Box} from "@mui/system";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-
 import {
     leftDivVariants,
     rightDivVariants,
@@ -16,6 +15,7 @@ import {
 import {motion} from "framer-motion";
 import {setUserAsync} from "../slices/userSlice";
 import {useDispatch} from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
     const [secondTransition, setSecondTransition] = useState(false);
@@ -23,6 +23,7 @@ function LandingPage() {
     const [buttonValue, setButtonValue] = useState("Start");
     const [error, setError] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleClick = () => {
         if (!secondTransition) {
@@ -45,7 +46,7 @@ function LandingPage() {
                 .then((data) => {
                     if (data) {
                         dispatch(setUserAsync(data.login));
-                        // ToDo: route to /user
+                        navigate("/user");
                         console.log(data);
                     }
                 });
