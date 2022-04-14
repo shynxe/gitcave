@@ -9,6 +9,7 @@ import {ThemeProvider} from "@mui/material";
 import theme from "./config/theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PersistGate} from "redux-persist/integration/react";
+import FileBrowser from "./views/FileBrowser";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
               <BrowserRouter>
                   <Routes>
                       <Route path="/" element={<App/>}/>
+                      <Route path="/browse" element={<FileBrowser/>}/>
                   </Routes>
               </BrowserRouter>
           </ThemeProvider>
