@@ -1,10 +1,11 @@
 import {Box} from "@mui/material";
+import Navbar from "../components/Navbar";
 
 const UserView = () => {
     return (
         <Box sx={{display: "flex", flexDirection: "column", minHeight: "100vh", minWidth: "100vw", backgroundColor:"red"}}>
             <Box sx={{minHeight: "6vh", width: "100%", backgroundColor:"yellow"}}>
-                navbar
+                <Navbar/>
             </Box>
             <Box display="flex" flexGrow="1" sx={{ flexDirection: { xs: "column", md: "row"} }}>
                 <Box sx={{minWidth: {xs: "100%", md: "20vw"}, width: "fit-content", backgroundColor: "green"}}>

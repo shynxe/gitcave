@@ -16,20 +16,19 @@ export default function Navbar() {
       <AppBar position="static">
         <Toolbar sx={{ padding: '0.5rem' }}>
           <div>
-            <img src='./logo.png' 
+            <img src='./logo.png'
               alt='logo'
               style={{
-                height:'3rem', 
+                height:'3rem',
                 marginRight: '1.75rem'
               }}
             />
           </div>
-          <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h3" component="div" sx={{ flexGrow: 1, marginRight: "15px" }}>
             Gitcave
           </Typography>
           <Button sx={{
             textWrap: 'none',
-            minWidth: 200,
             backgroundColor:'black',
             ml: 'auto' }} color="inherit">Switch User</Button>
         </Toolbar>
