@@ -10,24 +10,25 @@ import theme from "./config/theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PersistGate} from "redux-persist/integration/react";
 import UserView from "./views/UserView";
-
+import FileBrowser from "./views/FileBrowser";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <ThemeProvider theme={theme}>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={<App/>}/>
-                            <Route path="/user" element={<UserView/>}/>
-                        </Routes>
-                    </BrowserRouter>
-                </ThemeProvider>
-            </PersistGate>
-        </Provider>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+      <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+          <ThemeProvider theme={theme}>
+              <BrowserRouter>
+                  <Routes>
+                      <Route path="/" element={<App/>}/>
+                      <Route path="/user" element={<UserView/>}/>
+                      <Route path="/browse" element={<FileBrowser/>}/>
+                  </Routes>
+              </BrowserRouter>
+          </ThemeProvider>
+          </PersistGate>
+      </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
