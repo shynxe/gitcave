@@ -1,59 +1,90 @@
 import React from "react";
-import "./RepositoryItem.css";
 import Card from "@mui/material/Card";
 import { CardContent, experimentalStyled } from "@mui/material";
 import { AiOutlineStar } from "react-icons/ai";
 import { GoRepoForked } from "react-icons/go";
 import { FaBalanceScale, FaCircle } from "react-icons/fa";
-import moment from 'moment';
+import moment from "moment";
 import { getColor } from "../utils/utils";
+import { Typography, Link, Box } from "@mui/material";
 
-const RepositoryItem= ({ name, url, updated, stars, language, forks, license, visibility, description}) => {
-
-
-const lastUpdated = (date) => {
-
-  return(moment(date).fromNow())
-}
+const RepositoryItem = ({
+  name,
+  url,
+  updated,
+  stars,
+  language,
+  forks,
+  license,
+  visibility,
+  description,
+}) => {
+  const lastUpdated = (date) => {
+    return moment(date).fromNow();
+  };
 
   return (
     <>
-      <div className="container">
-        <Card>
-          <CardContent>
-            <div className="repo">
-              <div className="title">
-                <a href={url} className="repo-title">
-                  {name}
-                </a>
-                <span className="label"> {visibility} </span>
-              </div>
-              <p className="repo-description">
-                {description}
-              </p>
-              <div>
-               {language ? (<span className="repo-details">
-                  <FaCircle style={{color:getColor(language)}}/> {language}
-                </span>) : null}
+      <Card sx={{ margin: "10px" }}>
+        <CardContent>
+          <Link
+            href={url}
+            sx={{ color: "rgba(166, 218, 255, 1)", fontSize: "h5.fontSize" }}
+          >
+            {name}
+          </Link>
+          <Typography
+            sx={{
+              display: "inline-block",
+              padding: "0 7px",
+              fontSize: "12px",
+              fontWeight: "500",
+              lineHeight: "18px",
+              border: "1px solid grey",
+              borderRadius: "2em",
+              color: "#57606a",
+              margin: "10px",
+            }}
+          >
+            {visibility}{" "}
+          </Typography>
 
-                <span className="repo-details">
-                  <AiOutlineStar /> {stars}
-                </span>
+          <Typography sx={{ fontSize: 16 }}>{description}</Typography>
+          <Box
+            sx={{
+              marginTop: "10px",
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+            }}
+          >
+            {language ? (
+              <Typography sx={{ marginRight: "15px" }}>
+                <FaCircle style={{ color: getColor(language) }} /> {language}
+              </Typography>
+            ) : null}
 
-                <span className="repo-details">
-                  <GoRepoForked /> {forks}
-                </span>
+            <Typography sx={{ marginRight: "15px" }}>
+              <AiOutlineStar /> {stars}
+            </Typography>
 
-                {license ? (<span className="repo-details">
-                  <FaBalanceScale /> {license.name}
-                </span>) : null }
+            <Typography sx={{ marginRight: "15px" }}>
+              <GoRepoForked /> {forks}
+            </Typography>
 
-                <span className="last-updated"> Last Updated: {lastUpdated(updated)} </span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+            {license ? (
+              <Typography sx={{ marginRight: "15px" }}>
+                <FaBalanceScale /> {license.name}
+              </Typography>
+            ) : null}
+
+            <Typography sx={{ marginRight: "15px" }}>
+              
+              Last Updated: {lastUpdated(updated)}
+            </Typography>
+          </Box>
+        </CardContent>
+      </Card>
     </>
   );
 };
