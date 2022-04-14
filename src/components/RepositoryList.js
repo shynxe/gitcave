@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../slices/userSlice";
 import useDebounce from "../utils/useDebounce";
 import SearchInput from "./SearchInput";
-   
+
 
 const RepositoryList = () => {
   const [repos, setRepos] = useState([]);
@@ -18,8 +18,8 @@ const RepositoryList = () => {
 
   useEffect(() => {
     const createLink = () => {
-    const queryString = 'q=' + encodeURIComponent(`${debouncedSearch} in:name,description user:${user.username}`);  
-    
+    const queryString = 'q=' + encodeURIComponent(`${debouncedSearch} in:name,description user:${user.username}`);
+
     console.log('queryString:', queryString)
     console.log(
         `https://api.github.com/search/repositories?${queryString}`
@@ -34,9 +34,9 @@ const RepositoryList = () => {
 
   return (
     <>
-      <p>
+        <div w={"100%"}>
         <SearchInput placeholder="Search repos" onChange={(e) => setSearch(e.target.value)}/>
-        
+
         {user?.repos.map((repo) => {
           return (
             <RepositoryItem
@@ -53,8 +53,7 @@ const RepositoryList = () => {
             />
           );
         })}
-      </p>
-
+        </div>
       <Pagination
         onChange={(e) => handleChange(e.target.textContent)}
         style={{

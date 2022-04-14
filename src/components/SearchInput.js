@@ -6,15 +6,17 @@ import InputBase from '@mui/material/InputBase';
 
 
 const Input = styled(InputBase)(({ theme }) => ({
-
-  '.MuiInputBase-input': {
+  "&": {
+    width: "80%"
+  },
+  '& .MuiInputBase-input': {
     borderRadius: 4,
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
     border: '1px solid #ced4da',
     fontSize: 16,
     padding: '10px 26px 10px 12px',
-    width: '80vw',
+    width: '100%',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
     fontFamily: [
       '-apple-system',
@@ -38,7 +40,7 @@ const Input = styled(InputBase)(({ theme }) => ({
 
 export default function SearchInput({placeholder, onChange}) {
 
-  return (    
+  return (
         <Input id="demo-customized-textbox" placeholder={placeholder} onChange={onChange} />
   );
 }

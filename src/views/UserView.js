@@ -1,4 +1,5 @@
 import {Box} from "@mui/material";
+import RepositoryList from "../components/RepositoryList";
 
 const UserView = () => {
     return (
@@ -11,7 +12,7 @@ const UserView = () => {
                     profile goes here
                 </Box>
                 <Box sx={{flexGrow: 1, backgroundColor: "blue"}}>
-                    repository list goes here
+                    <RepositoryList/>
                 </Box>
             </Box>
         </Box>
