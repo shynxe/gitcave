@@ -46,3 +46,10 @@ h1 {
 .git {
    color: rgb(237, 151, 86);
 }
+
+.errorMessage {
+   /* display: none; */
+   color: red;
+   font-size: 100%;
+   /* margin: 0 auto; */
+}

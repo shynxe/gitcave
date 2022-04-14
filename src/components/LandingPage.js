@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./LandingPage.css";
 import pcWork from "../images/pcWork.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { Box } from "@mui/system";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { motion } from "framer-motion/dist/framer-motion";
@@ -11,15 +12,40 @@ import {
    imageVariants,
    welcomeVariants,
    inputVariants,
+   errorVariants,
 } from "./utils";
 
 function LandingPage() {
    const [secondTransition, setSecondTransition] = useState(false);
+   const [user, setUser] = useState(null);
+   const [buttonValue, setButtonValue] = useState("Start");
+   const [error, setError] = useState(false);
 
-   const handleFirstClick = () => {
-      setSecondTransition(true);
+   const handleClick = () => {
+      if (!secondTransition) {
+         setSecondTransition(true);
+         setTimeout(() => {
+            setButtonValue("Search User");
+         }, 2200);
+      } else {
+         console.log(`I am seraching the user ${user}`);
+         fetch(`https://api.github.com/users/${user}`)
+            .then((response) => {
+               if (response.ok) {
+                  setError(false);
+                  return response.json();
+               } else {
+                  console.log("error");
+                  setError(true);
+               }
+            })
+            .then((data) => {
+               if (data) {
+                  console.log(data);
+               }
+            });
+      }
    };
-
 
    return (
       <div className="landingPage">
@@ -35,7 +61,7 @@ function LandingPage() {
                initial={"initial"}
                animate={secondTransition && "hidden"}
                variants={welcomeVariants}
-               transition={{delay: '1', duration: "1" }}
+               transition={{ delay: "1", duration: "1" }}
             >
                Welcome to
             </motion.h1>
@@ -44,7 +70,7 @@ function LandingPage() {
                initial={"initial"}
                animate={secondTransition && "hidden"}
                variants={welcomeVariants}
-               transition={{delay: '1', duration: "1" }}
+               transition={{ delay: "1", duration: "1" }}
             >
                <span className="git">Git</span>Cave
             </motion.h1>
@@ -56,17 +82,22 @@ function LandingPage() {
                   fontSize: "7vw",
                }}
             />
-            <motion.div
+            {error && <h1 className="errorMessage">User not found :(</h1>}
+            <Box
+               component={motion.div}
                initial={"initial"}
-               style={{width: '50%'}}
+               sx={ width= {sm: "90%", md: "50%" }}
                animate={secondTransition && "displayed"}
                variants={inputVariants}
-               transition={{delay: '1.5', duration: "1" }}
+               transition={{ delay: "1.5", duration: "1" }}
             >
                <TextField
                   id="outlined-basic"
                   label="Username"
                   variant="outlined"
+                  onChange={(event) => {
+                     setUser(event.target.value);
+                  }}
                   sx={{
                      "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                         borderColor: "primary.main",
@@ -77,9 +108,9 @@ function LandingPage() {
                      width: "100%",
                   }}
                />
-            </motion.div>
+            </Box>
             <Button
-               onClick={!secondTransition && handleFirstClick}
+               onClick={handleClick}
                variant="contained"
                sx={{
                   color: "white",
@@ -91,7 +122,7 @@ function LandingPage() {
                   fontWeight: "bolder",
                }}
             >
-               {secondTransition ? 'Search User' : "Start"}
+               {buttonValue}
             </Button>
          </motion.div>
          <motion.div

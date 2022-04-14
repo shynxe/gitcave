@@ -1,3 +1,5 @@
+import { Block } from "@mui/icons-material";
+
 export const leftDivVariants = {
    initial: {
       width: "25%",
