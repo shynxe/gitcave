@@ -10,4 +10,11 @@
     width: 12vw;
 }
 
+.userProfile p {
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+}
 
