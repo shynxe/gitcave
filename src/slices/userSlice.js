@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {PER_PAGE} from "../utils/constants";
 
 const initialState = {
     value: {},
@@ -11,7 +12,7 @@ export const setUserAsync = createAsyncThunk(
             fetch(`https://api.github.com/users/${username}`).then((res) => res.json()),
             fetch(`https://api.github.com/users/${username}/repos?` + new URLSearchParams({
                 sort: 'updated',
-                per_page: 30,
+                per_page: PER_PAGE,
                 page: 1,
             })).then((res) => res.json()),
         ];
@@ -25,10 +26,15 @@ export const setPageAsync = createAsyncThunk(
     async (user) => {
         return await fetch(`https://api.github.com/users/${user[0]}/repos?` + new URLSearchParams({
                 sort: 'updated',
-                per_page: 30,
+                per_page: PER_PAGE,
                 page: user[1],
             })).then((res) => res.json())
     }
+);
+
+export const setPageSearchAsync = createAsyncThunk(
+    'user/setPageSearchAsync',
+    async (url) =>  await fetch(`${url}`).then((res) => res.json())
 );
 
 
@@ -61,9 +67,11 @@ export const userSlice = createSlice({
             state.value.following_count = action.payload.following;
         },
         [setPageAsync.fulfilled]: (state, action) => {
-            console.log("tasdfas:", action.payload)
             state.value.repos = action.payload;
-        }
+        },
+        [setPageSearchAsync.fulfilled]: (state, action) => {
+            state.value.repos = action.payload.items;
+        },
     },
 });
 

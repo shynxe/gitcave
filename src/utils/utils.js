@@ -66,3 +66,7 @@ export const getColor = (language) => {
             return "#F18E33";
     }
 }
+
+export const createLink = (debouncedSearch, username) => {
+    return "https://api.github.com/search/repositories?" + 'q=' + encodeURIComponent(`${debouncedSearch} in:name,description user:${username}`);
+}

@@ -1,7 +1,25 @@
 import {Box} from "@mui/material";
 import RepositoryList from "../components/RepositoryList";
+import React, {useEffect, useState} from "react";
+import useDebounce from "../utils/useDebounce";
+import SearchInput from "../components/SearchInput";
+import {createLink} from "../utils/utils";
+import {useDispatch, useSelector} from "react-redux";
+import {selectUser, setPageSearchAsync, setUserAsync} from "../slices/userSlice";
 
 const UserView = () => {
+    const user = useSelector(selectUser);
+    const [search, setSearch] = useState("");
+    const debouncedSearch = useDebounce(search, 500);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (debouncedSearch)
+            dispatch(setPageSearchAsync(createLink(debouncedSearch, user.username)));
+        else
+            dispatch(setUserAsync(user.username));
+    }, [debouncedSearch]);
+
     return (
         <Box sx={{display: "flex", flexDirection: "column", minHeight: "100vh", minWidth: "100vw", alignItems:"center"}}>
             <Box sx={{minHeight: "6vh", width: "100%", backgroundColor:"yellow"}}>
@@ -12,7 +30,8 @@ const UserView = () => {
                     profile goes here
                 </Box>
                 <Box sx={{flexGrow: 1, padding:'20px'}}>
-                    <RepositoryList/>
+                    <SearchInput placeholder="Search repos" onChange={(e) => setSearch(e.target.value)}/>
+                    <RepositoryList isFiltered={debouncedSearch.length > 0}/>
                 </Box>
             </Box>
         </Box>
