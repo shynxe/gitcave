@@ -4,10 +4,11 @@ import Card from "@mui/material/Card";
 import { CardContent, experimentalStyled } from "@mui/material";
 import { AiOutlineStar } from "react-icons/ai";
 import { GoRepoForked } from "react-icons/go";
-import { FaBalanceScale, FaCode } from "react-icons/fa";
+import { FaBalanceScale, FaCircle } from "react-icons/fa";
 import moment from 'moment';
+import { getColor } from "../utils/utils";
 
-const RepositoryItem= ({ name, url, updated, stars, watchers, language, forks, license, visibility, description}) => {
+const RepositoryItem= ({ name, url, updated, stars, language, forks, license, visibility, description}) => {
 
 
 const lastUpdated = (date) => {
@@ -25,15 +26,15 @@ const lastUpdated = (date) => {
                 <a href={url} className="repo-title">
                   {name}
                 </a>
-                <span className="label"> Public </span>
+                <span className="label"> {visibility} </span>
               </div>
               <p className="repo-description">
                 {description}
               </p>
               <div>
-                <span className="repo-details">
-                  <FaCode /> {language}
-                </span>
+               {language ? (<span className="repo-details">
+                  <FaCircle style={{color:getColor(language)}}/> {language}
+                </span>) : null}
 
                 <span className="repo-details">
                   <AiOutlineStar /> {stars}
