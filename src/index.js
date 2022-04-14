@@ -9,6 +9,7 @@ import {ThemeProvider} from "@mui/material";
 import theme from "./config/theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PersistGate} from "redux-persist/integration/react";
+import UserView from "./views/UserView";
 
 
 ReactDOM.render(
@@ -19,6 +20,7 @@ ReactDOM.render(
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<App/>}/>
+                            <Route path="/user" element={<UserView/>}/>
                         </Routes>
                     </BrowserRouter>
                 </ThemeProvider>

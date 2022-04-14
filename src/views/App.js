@@ -1,6 +1,5 @@
 import logo from '../logo.svg';
 import '../App.css';
-import Counter from "../components/Counter";
 import UserExample from "../components/UserExample";
 import RepositoryList from "../components/RepositoryList";
 
