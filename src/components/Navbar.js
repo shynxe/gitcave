@@ -19,7 +19,8 @@ const style = {
    transform: "translate(-50%, -50%)",
    width: 400,
    bgcolor: "background.paper",
-   border: "2px solid #000",
+   border: "3px solid #000",
+   borderRadius:'25px',
    boxShadow: 24,
    p: 4,
 };
@@ -62,7 +63,7 @@ export default function Navbar() {
             aria-describedby="modal-modal-description"
          >
             <Box sx={style}>
-               <Typography id="modal-modal-title" variant="h6" component="h2" sx={{marginBottom: '5%'}}>
+               <Typography id="modal-modal-title" variant="h6" component="h2" sx={{marginBottom: '5%', textAlign:'center'}}>
                   SEARCH NEW USER
                </Typography>
                <TextField
@@ -89,9 +90,10 @@ export default function Navbar() {
                   sx={{
                      backgroundColor: "primary.main",
                      borderRadius: "50px",
-                     fontSize: "0.6vw",
+                     fontSize: "0.8vw",
                      marginLeft: "34%",
                      marginTop: "5%",
+                     fontWeight:'bold',
                   }}
                >
                   Search User
@@ -99,22 +101,24 @@ export default function Navbar() {
             </Box>
          </Modal>
          <AppBar position="static">
-            <Toolbar sx={{ padding: "0.5rem" }}>
+            <Toolbar sx={{ padding: "0.5rem", color:'white'}}>
                <div>
-                  <GitHubIcon sx={{ fontSize: "3rem", marginRight: "5px" }} />
+                  <GitHubIcon sx={{ fontSize: "3rem", marginRight: "5px", color:'white'}} />
                </div>
                <Typography
                   variant="h3"
                   component="div"
-                  sx={{ flexGrow: 1, marginRight: "15px" }}
+                  sx={{ flexGrow: '1', marginRight: "15px", fontWeight:'bolder'}}
                >
-                  Gitcave
+                 <span style={{color:'rgb(237, 151, 86)'}}>Git</span>cave
                </Typography>
                <Button
                   sx={{
                      textWrap: "none",
-                     backgroundColor: "black",
+                     backgroundColor: "rgb(237, 151, 86)",
                      ml: "auto",
+                     fontWeight: 'bold',
+                     borderRadius: '25px'
                   }}
                   color="inherit"
                   onClick={handleOpen}
