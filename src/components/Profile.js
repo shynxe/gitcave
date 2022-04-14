@@ -14,9 +14,9 @@ function Profile() {
   console.log(user);
 
   return (
-    <Box className="userProfile">
+    <Box sx={{display:"flex", flexDirection:"column", alignItems:{xs:"center", md:"flex-start"}}}>
       <img style={{ transform: "translate(0, -10px)", borderRadius: "50%", 
-    width: "12vw" }} src={user.image} />
+    width:"210px" }} src={user.image} />
       <Typography component="div">
         <Box sx={{ fontSize: "h4.fontSize", m: 1 }}> {user.name} </Box>
         <Box sx={{ fontSize: "h6.fontSize", m: 1 }}> {user.username} </Box>
