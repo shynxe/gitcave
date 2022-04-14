@@ -7,7 +7,7 @@ import InputBase from '@mui/material/InputBase';
 
 const Input = styled(InputBase)(({ theme }) => ({
   "&": {
-    width: "80%"
+    width: "100%"
   },
   '& .MuiInputBase-input': {
     borderRadius: 4,

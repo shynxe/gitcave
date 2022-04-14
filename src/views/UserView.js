@@ -30,19 +30,17 @@ const UserView = () => {
                     <Box sx={{
                         display: "flex",
                         flexDirection: "column",
-                        minHeight: "100vh",
-                        minWidth: "100vw",
                         alignItems: "center"
                     }}>
-                        <Box sx={{minHeight: "6vh", width: "100%", backgroundColor: "yellow"}}>
+                        <Box sx={{minHeight: "10vh", width: "95%"}}>
                             <Navbar/>
                         </Box>
                         <Box display="flex" flexGrow="1"
-                             sx={{flexDirection: {xs: "column", md: "row"}, maxWidth: "70vw"}}>
-                            <Box sx={{minWidth: {xs: "100%", md: "20vw"}, width: "fit-content"}}>
+                             sx={{flexDirection: {xs: "column", md: "row"}, maxWidth: "70vw", alignItems: {xs: 'center', md: 'flex-start'}}}>
+                            <Box sx={{maxWidth: {xs: "90%", md: "20vw"}, width: "fit-content"}}>
                                 <Profile/>
                             </Box>
-                            <Box sx={{flexGrow: 1, padding: '20px'}}>
+                            <Box sx={{flexGrow: 1, padding: '20px', minWidth:'50vw'}}>
                                 <SearchInput placeholder="Search repos" onChange={(e) => setSearch(e.target.value)}/>
                                 <RepositoryList isFiltered={debouncedSearch.length > 0}/>
                             </Box>

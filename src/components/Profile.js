@@ -20,6 +20,7 @@ function Profile() {
       <Typography component="div">
         <Box sx={{ fontSize: "h4.fontSize", m: 1 }}> {user.name} </Box>
         <Box sx={{ fontSize: "h6.fontSize", m: 1 }}> {user.username} </Box>
+        <hr></hr>
         <Box sx={{ typography: "subtitle2", fontSize: "default", m: 1 }}>
           
           <PeopleAltIcon sx={{ fontSize: "default" }} /> {user.follower_count} followers - {user.following_count} following
@@ -30,8 +31,7 @@ function Profile() {
 
         <Box sx={{ fontSize: "default", m: 1 }}>
           
-          <RiGitRepositoryFill sx={{ fontSize: "default", m: 1 }} />
-          Repositories: {user.repo_count}
+          <RiGitRepositoryFill sx={{ fontSize: "default", m: 1 }} /> Repositories: {user.repo_count}
         </Box>
         {user.location && (
           <Box sx={{ fontSize: "default", m: 1 }}>
