@@ -1,0 +1,20 @@
+.userProfile {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+.userProfile img {
+    border-radius: 50%;
+    width: 12vw;
+}
+
+.userProfile p {
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+}
+

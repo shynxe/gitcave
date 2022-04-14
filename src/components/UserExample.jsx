@@ -8,7 +8,9 @@ const UserExample = () => {
     const dispatch = useDispatch();
 
     const onViewUserClick = () => {
+        // fetch(`/api/users/${username}`) => user valid ?
         dispatch(setUserAsync(username));
+        // eroare
     }
 
     return (
@@ -16,18 +18,18 @@ const UserExample = () => {
             <h1>User: {user?.username}</h1>
             <input type="text" defaultValue={username} onChange={(e) => setUsername(e.target.value)} />
             <button onClick={onViewUserClick}>View User</button>
-            <div style={{textAlign: "left", fontSize: "1.5rem"}}>
-            {
-                Object.keys(user).map(key => {
-                    if (typeof user[key] !== "object") {
-                        return <div key={key}><b>{key}</b>: {user[key]}</div>
-                    } else if (key === "repos") {
-                        return <div key={key}><b>{key}</b>: <ul>{user[key].map(repo => <li key={repo.id}>{repo.name}</li>)}</ul></div>
-                    }
-                    return <></>
-                })
-            }
-            </div>
+            {/*<div style={{textAlign: "left", fontSize: "1.5rem"}}>*/}
+            {/*{*/}
+            {/*    Object.keys(user).map(key => {*/}
+            {/*        if (typeof user[key] !== "object") {*/}
+            {/*            return <div key={key}><b>{key}</b>: {user[key]}</div>*/}
+            {/*        } else if (key === "repos") {*/}
+            {/*            return <div key={key}><b>{key}</b>: <ul>{user[key].map(repo => <li key={repo.id}>{repo.name}</li>)}</ul></div>*/}
+            {/*        }*/}
+            {/*        return <></>*/}
+            {/*    })*/}
+            {/*}*/}
+            {/*</div>*/}
         </div>
     );
 };

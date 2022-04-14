@@ -1,0 +1,31 @@
+.container{
+    margin: 10px;
+}
+
+.repo-title{
+    color: rgba(166, 218, 255, 1);
+    text-decoration: none;
+    font-size: 25px;
+    
+}
+
+.repo-title:hover{
+    text-decoration: underline;
+}
+
+.label{
+    display: inline-block;
+    padding: 0 7px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    border: 1px solid grey;
+    border-radius: 2em;
+    color: #57606a;
+    margin: 5px;
+}
+
+.repo-details{
+    margin-right: 15px;
+}
+
