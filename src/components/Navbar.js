@@ -9,21 +9,9 @@ import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useState} from "react";
-import { setUserAsync} from "../slices/userSlice";
-
-const style = {
-   position: "absolute",
-   top: "50%",
-   left: "50%",
-   transform: "translate(-50%, -50%)",
-   width: 400,
-   bgcolor: "background.paper",
-   border: "3px solid #000",
-   borderRadius:'25px',
-   boxShadow: 24,
-   p: 4,
-};
+import { useState } from "react";
+import { setUserAsync } from "../slices/userSlice";
+import { style, errorStyle } from "./utils";
 
 export default function Navbar() {
    const [user, setUser] = useState(undefined);
@@ -40,16 +28,14 @@ export default function Navbar() {
                setError(false);
                return response.json();
             } else {
-               console.log("error");
                setError(true);
             }
          })
          .then((data) => {
             if (data) {
-               dispatch(setUserAsync(data.login));
                setOpen(false);
+               dispatch(setUserAsync(data.login));
                navigate("/user");
-               console.log(data);
             }
          });
    };
@@ -62,8 +48,13 @@ export default function Navbar() {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
          >
-            <Box sx={style}>
-               <Typography id="modal-modal-title" variant="h6" component="h2" sx={{marginBottom: '5%', textAlign:'center'}}>
+            <Box sx={!error ? style : errorStyle}>
+               <Typography
+                  id="modal-modal-title"
+                  variant="h6"
+                  component="h2"
+                  sx={{ marginBottom: "5%", textAlign: "center" }}
+               >
                   SEARCH NEW USER
                </Typography>
                <TextField
@@ -93,7 +84,7 @@ export default function Navbar() {
                      fontSize: "0.8vw",
                      marginLeft: "34%",
                      marginTop: "5%",
-                     fontWeight:'bold',
+                     fontWeight: "bold",
                   }}
                >
                   Search User
@@ -101,24 +92,34 @@ export default function Navbar() {
             </Box>
          </Modal>
          <AppBar position="static">
-            <Toolbar sx={{ padding: "0.5rem", color:'white'}}>
+            <Toolbar sx={{ padding: "0.5rem", color: "white" }}>
                <div>
-                  <GitHubIcon sx={{ fontSize: "3rem", marginRight: "5px", color:'white'}} />
+                  <GitHubIcon
+                     sx={{
+                        fontSize: "3rem",
+                        marginRight: "5px",
+                        color: "white",
+                     }}
+                  />
                </div>
                <Typography
                   variant="h3"
                   component="div"
-                  sx={{ flexGrow: '1', marginRight: "15px", fontWeight:'bolder'}}
+                  sx={{
+                     flexGrow: "1",
+                     marginRight: "15px",
+                     fontWeight: "bolder",
+                  }}
                >
-                 <span style={{color:'rgb(237, 151, 86)'}}>Git</span>cave
+                  <span style={{ color: "rgb(237, 151, 86)" }}>Git</span>Cave
                </Typography>
                <Button
                   sx={{
                      textWrap: "none",
                      backgroundColor: "rgb(237, 151, 86)",
                      ml: "auto",
-                     fontWeight: 'bold',
-                     borderRadius: '25px'
+                     fontWeight: "bold",
+                     borderRadius: "25px",
                   }}
                   color="inherit"
                   onClick={handleOpen}

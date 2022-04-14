@@ -45,3 +45,28 @@ export const inputVariants = {
       opacity: 1
    },
 };
+ export const style = {
+   position: "absolute",
+   top: "50%",
+   left: "50%",
+   transform: "translate(-50%, -50%)",
+   width: 400,
+   bgcolor: "background.paper",
+   border: '3px solid black',
+   borderRadius: "25px",
+   boxShadow: 24,
+   p: 4,
+ };
+
+ export const errorStyle = {
+   position: "absolute",
+   top: "50%",
+   left: "50%",
+   transform: "translate(-50%, -50%)",
+   width: 400,
+   bgcolor: "background.paper",
+   border: '3px solid red',
+   borderRadius: "25px",
+   boxShadow: 24,
+   p: 4,
+ };
