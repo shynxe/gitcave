@@ -7,6 +7,7 @@ import {createLink} from "../utils/utils";
 import {useDispatch, useSelector} from "react-redux";
 import {selectUser, setPageSearchAsync, setUserAsync} from "../slices/userSlice";
 import Navbar from "../components/Navbar";
+import Profile from "../components/Profile";
 
 const UserView = () => {
     const user = useSelector(selectUser);
@@ -28,7 +29,7 @@ const UserView = () => {
             </Box>
             <Box display="flex" flexGrow="1" sx={{ flexDirection: { xs: "column", md: "row"}, maxWidth: "70vw" }}>
                 <Box sx={{minWidth: {xs: "100%", md: "20vw"}, width: "fit-content"}}>
-                    profile goes here
+                    <Profile />
                 </Box>
                 <Box sx={{flexGrow: 1, padding:'20px'}}>
                     <SearchInput placeholder="Search repos" onChange={(e) => setSearch(e.target.value)}/>
