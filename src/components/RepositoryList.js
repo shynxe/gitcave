@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import RepositoryItem from "./RepositoryItem";
 import Pagination from "@mui/material/Pagination";
 import { useSelector } from "react-redux";
