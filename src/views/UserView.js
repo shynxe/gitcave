@@ -1,4 +1,4 @@
-import {Box} from "@mui/material";
+import {Box, CircularProgress} from "@mui/material";
 import RepositoryList from "../components/RepositoryList";
 import React, {useEffect, useState} from "react";
 import useDebounce from "../utils/useDebounce";
@@ -49,7 +49,14 @@ const UserView = () => {
                         </Box>
                     </Box>
                     :
-                    <>Loading...</>
+                    <Box sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        minHeight: "100vh",
+                        minWidth: "100vw",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}><CircularProgress /></Box>
             }
         </>
     )

@@ -34,8 +34,6 @@ const RepositoryList = () => {
   return (
     <>
         <div w={"100%"}>
-        <SearchInput placeholder="Search repos" onChange={(e) => setSearch(e.target.value)}/>
-
         {user?.repos.map((repo) => {
           return (
             <RepositoryItem
