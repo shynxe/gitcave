@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
     const [secondTransition, setSecondTransition] = useState(false);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(undefined);
     const [buttonValue, setButtonValue] = useState("Start");
     const [error, setError] = useState(false);
     const dispatch = useDispatch();
