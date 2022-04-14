@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import "./LandingPage.css";
+import React, {useEffect, useState} from "react";
+import "../components/LandingPage.css";
 import pcWork from "../images/pcWork.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import {Box} from "@mui/system";
@@ -11,9 +11,9 @@ import {
     imageVariants,
     welcomeVariants,
     inputVariants,
-} from "./utils";
+} from "../components/utils";
 import {motion} from "framer-motion";
-import {setUserAsync} from "../slices/userSlice";
+import {clear, setUserAsync} from "../slices/userSlice";
 import {useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +24,10 @@ function LandingPage() {
     const [error, setError] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch(clear());
+    }, []);
 
     const handleClick = () => {
         if (!secondTransition) {

@@ -70,3 +70,10 @@ export const getColor = (language) => {
 export const createLink = (debouncedSearch, username) => {
     return "https://api.github.com/search/repositories?" + 'q=' + encodeURIComponent(`${debouncedSearch} in:name,description user:${username}`);
 }
+// function that checks if an object is null or empty
+export const isEmpty = (obj) => {
+    for (const key in obj)
+        if (obj.hasOwnProperty(key))
+            return false;
+    return true;
+};

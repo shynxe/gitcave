@@ -21,7 +21,7 @@ const RepositoryList = ({isFiltered}) => {
         <>
             <Box width={"100%"}>
 
-                {user?.repos.map((repo) => {
+                {user?.repos?.map((repo) => {
                     return (
                         <RepositoryItem
                             key={repo.id}
