@@ -27,9 +27,8 @@ const RepositoryList = () => {
     if (debouncedSearch) createLink();
   }, [debouncedSearch]);
 
-  const handleChange = (user, page) => {
-    console.log('page from handleChange: ', page)
-    dispatch(setPageAsync(user, page));
+  const handleChange = (user) => {
+    dispatch(setPageAsync(user));
   };
 
   return (
@@ -56,7 +55,7 @@ const RepositoryList = () => {
         })}
         </div>
       <Pagination 
-        onChange={(e) => { handleChange([user.username, e.target.textContent]); console.log('page from pagination: ', e.target.textContent, 'username: ', user.username)}}
+        onChange={(e) => { handleChange([user.username, e.target.textContent])}}
         style={{
           display: "flex",
           justifyContent: "center",

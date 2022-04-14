@@ -23,17 +23,11 @@ export const setUserAsync = createAsyncThunk(
 export const setPageAsync = createAsyncThunk(
     'user/setPageAsync',
     async (user) => {
-        console.log("the url is: ", `https://api.github.com/users/${user[0]}/repos?` + new URLSearchParams({
-            sort: 'updated',
-            per_page: 30,
-            page: user[1],
-        }));
-        console.log('page in setPageAsync: ', user[1]);
         return await fetch(`https://api.github.com/users/${user[0]}/repos?` + new URLSearchParams({
                 sort: 'updated',
                 per_page: 30,
                 page: user[1],
-            })).then((res) => res.json()).then((res) => console.log(res))
+            })).then((res) => res.json())
     }
 );
 
@@ -67,7 +61,8 @@ export const userSlice = createSlice({
             state.value.following_count = action.payload.following;
         },
         [setPageAsync.fulfilled]: (state, action) => {
-            state.repos = action.payload;
+            console.log("tasdfas:", action.payload)
+            state.value.repos = action.payload;
         }
     },
 });
