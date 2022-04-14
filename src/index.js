@@ -10,15 +10,9 @@ import theme from "./config/theme";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PersistGate} from "redux-persist/integration/react";
 
-
-import Sidebar from './components/Sidebar';
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
-import Content from './components/Content.js'
-
 ReactDOM.render(
-    <React.StrictMode>
-      {/* <Provider store={store}>
+  <React.StrictMode>
+      <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
           <ThemeProvider theme={theme}>
               <BrowserRouter>
@@ -28,15 +22,8 @@ ReactDOM.render(
               </BrowserRouter>
           </ThemeProvider>
           </PersistGate>
-      </Provider> */}
-        <Navbar />
-            <div className='mainCointainer' style={{display: 'flex'}}>
-                <Sidebar />
-                <Content />
-            </div>
-        
-        <Footer />
-    </React.StrictMode>,
+      </Provider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
