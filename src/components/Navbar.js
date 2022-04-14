@@ -3,12 +3,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
-
-import { Input } from '@mui/material';
-import { red } from '@mui/material/node/colors';
-import { height, margin, padding } from '@mui/system';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import React from "react";
 
 export default function Navbar() {
   return (
@@ -16,13 +12,7 @@ export default function Navbar() {
       <AppBar position="static">
         <Toolbar sx={{ padding: '0.5rem' }}>
           <div>
-            <img src='./logo.png'
-              alt='logo'
-              style={{
-                height:'3rem',
-                marginRight: '1.75rem'
-              }}
-            />
+            <GitHubIcon sx={{fontSize: "3rem", marginRight: "5px"}}/>
           </div>
           <Typography variant="h3" component="div" sx={{ flexGrow: 1, marginRight: "15px" }}>
             Gitcave
