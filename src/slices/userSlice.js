@@ -22,17 +22,17 @@ export const setUserAsync = createAsyncThunk(
 
 export const setPageAsync = createAsyncThunk(
     'user/setPageAsync',
-    async (username, page) => {
-        console.log("the url is: ", `https://api.github.com/users/${username}/repos?` + new URLSearchParams({
+    async (user) => {
+        console.log("the url is: ", `https://api.github.com/users/${user[0]}/repos?` + new URLSearchParams({
             sort: 'updated',
             per_page: 30,
-            page: page,
+            page: user[1],
         }));
-        console.log('page in setPageAsync: ', page);
-        return await fetch(`https://api.github.com/users/${username}/repos?` + new URLSearchParams({
+        console.log('page in setPageAsync: ', user[1]);
+        return await fetch(`https://api.github.com/users/${user[0]}/repos?` + new URLSearchParams({
                 sort: 'updated',
                 per_page: 30,
-                page: page,
+                page: user[1],
             })).then((res) => res.json()).then((res) => console.log(res))
     }
 );

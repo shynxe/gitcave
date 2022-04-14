@@ -56,7 +56,7 @@ const RepositoryList = () => {
         })}
         </div>
       <Pagination 
-        onChange={(e) => { handleChange(user.username, e.target.textContent); console.log('page from pagination: ', e.target.textContent, 'username: ', user.username)}}
+        onChange={(e) => { handleChange([user.username, e.target.textContent]); console.log('page from pagination: ', e.target.textContent, 'username: ', user.username)}}
         style={{
           display: "flex",
           justifyContent: "center",
