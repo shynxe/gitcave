@@ -1,14 +1,15 @@
-import React from 'react';
+import logo from '../logo.svg';
 import '../App.css';
-import LandingPage from '../components/LandingPage';
+import UserExample from "../components/UserExample";
+import RepositoryList from "../components/RepositoryList";
 
 function App() {
     return (
         <div className="App">
             <header className="App-header">
-                {/* <img src={logo} className="App-logo" alt="logo"/>
-                <Counter/> */}
-                <LandingPage />
+                <img src={logo} className="App-logo" alt="logo"/>
+                <UserExample/>
+                <RepositoryList/>
             </header>
         </div>
     );
