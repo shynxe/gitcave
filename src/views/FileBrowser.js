@@ -41,7 +41,7 @@ const FileBrowser = () => {
                     else return a.path.localeCompare(b.path);
                 });
                 setTree(data.tree);
-                setIsLoading(false);
+                setTimeout(() => setIsLoading(false), 500);
             });
     }, [current_tree]);
 
@@ -88,6 +88,7 @@ const FileBrowser = () => {
                                                     cursor: "pointer",
                                                 }}
                                                 onClick={() => {
+                                                    setIsLoading(true);
                                                     window.history.back();
                                                 }}
                                             >
