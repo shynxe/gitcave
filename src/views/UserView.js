@@ -31,7 +31,8 @@ const UserView = () => {
                     <Box sx={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "center"
+                        alignItems: "center",
+                        minHeight: "100vh"
                     }}>
                         <Box sx={{minHeight: "10vh", width: "95%"}}>
                             <Navbar/>
@@ -46,7 +47,7 @@ const UserView = () => {
                                 <RepositoryList isFiltered={debouncedSearch.length > 0}/>
                             </Box>
                         </Box>
-                        <Box sx={{minHeight: "10vh", width: "95%"}}>
+                        <Box sx={{minHeight: "10vh", width: "95%", position:"relative", bottom:"0"}}>
                             <Footer/>
                         </Box>
                     </Box>

@@ -18,6 +18,8 @@ import {getIcon} from "../utils/icons";
 import {getFileExtension} from "../utils/utils";
 import RepositoryItem from "../components/RepositoryItem";
 import { RiFolderReceivedFill } from "react-icons/ri";
+import Footer from "../components/Footer";
+    
 
 const FileBrowser = () => {
     const location = useLocation();
@@ -52,6 +54,7 @@ const FileBrowser = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                minHeight: "100vh"
             }}
         >
             <Box sx={{minHeight: "10vh", width: "95%"}}>
@@ -138,6 +141,9 @@ const FileBrowser = () => {
                     </Grid>
                 </Box>
             </Box>
+            <Box sx={{minHeight: "10vh", width: "95%", position:"relative", bottom:"0"}}>
+                            <Footer/>
+                        </Box>
         </Box>
     );
 };

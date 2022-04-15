@@ -16,7 +16,7 @@ function Profile() {
             <img
                 alt={"profile"}
                 style={{
-                    transform: "translate(0, -10px)",
+                
                     borderRadius: "50%",
                     width: "12vw",
                 }}
