@@ -70,3 +70,8 @@ export const isEmpty = (obj) => {
             return false;
     return true;
 };
+
+// function that gets file extension from file name
+export const getFileExtension = (filename) => {
+    return filename.split('.').pop();
+}
