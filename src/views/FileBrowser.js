@@ -17,7 +17,7 @@ import {getFileExtension} from "../utils/utils";
 import RepositoryItem from "../components/RepositoryItem";
 import { RiFolderReceivedFill } from "react-icons/ri";
 import Footer from "../components/Footer";
-    
+
 
 const FileBrowser = () => {
     const location = useLocation();
@@ -116,6 +116,7 @@ const FileBrowser = () => {
                                                         cursor: leaf.type === "tree" ? "pointer" : "default",
                                                     }}
                                                     onClick={() => {
+                                                        setIsLoading(true);
                                                         navigate(`/browse`, {
                                                             state: {
                                                                 repo: repo,
