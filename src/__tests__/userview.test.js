@@ -32,8 +32,9 @@ test('repo list appears on UserView', () => {
     const mockUser = {
         repos: [
             {name: "Test Repo"},
-        ]
-    }
+            {name: "Another"},
+        ],
+    };
     spy.mockReturnValue(mockUser);
     render(
         <Provider store={store}>
@@ -46,4 +47,5 @@ test('repo list appears on UserView', () => {
     expect(spy).toHaveBeenCalled();
 
     expect(document.body.textContent).toContain("Test Repo");
+    expect(document.body.textContent).toContain("Another");
 });

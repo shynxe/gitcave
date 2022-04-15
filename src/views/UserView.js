@@ -16,8 +16,6 @@ const UserView = () => {
     const debouncedSearch = useDebounce(search, 500);
     const dispatch = useDispatch();
 
-    console.log("user: ", user);
-
     useEffect(() => {
         if (isEmpty(user)) return;
         if (debouncedSearch)

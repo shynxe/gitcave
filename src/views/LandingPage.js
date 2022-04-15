@@ -41,7 +41,6 @@ function LandingPage() {
                         dispatch(clear());
                         dispatch(setUserAsync(data.login));
                         navigate("/user");
-                        console.log(data);
                     }
                 });
         }
