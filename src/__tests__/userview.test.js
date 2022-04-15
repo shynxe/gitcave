@@ -27,23 +27,23 @@ test('user appears on UserView', () => {
 });
 
 
-// test('repo list appears on UserView', () => {
-//     const spy = jest.spyOn(redux, 'useSelector');
-//     const mockUser = {
-//         repos: [
-//             {name: "Test Repo"}
-//         ]
-//     }
-//     spy.mockReturnValue(mockUser);
-//     render(
-//         <Provider store={store}>
-//             <BrowserRouter>
-//                 <UserView/>
-//             </BrowserRouter>
-//         </Provider>
-//     );
-//
-//     expect(spy).toHaveBeenCalled();
-//
-//     expect(document.body.textContent).toContain("Test Repo");
-// });
+test('repo list appears on UserView', () => {
+    const spy = jest.spyOn(redux, 'useSelector');
+    const mockUser = {
+        repos: [
+            {name: "Test Repo"},
+        ]
+    }
+    spy.mockReturnValue(mockUser);
+    render(
+        <Provider store={store}>
+            <BrowserRouter>
+                <UserView/>
+            </BrowserRouter>
+        </Provider>
+    );
+
+    expect(spy).toHaveBeenCalled();
+
+    expect(document.body.textContent).toContain("Test Repo");
+});

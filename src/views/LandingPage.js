@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "../components/LandingPage.css";
 import pcWork from "../images/pcWork.png";
 import GitHubIcon from "@mui/icons-material/GitHub";

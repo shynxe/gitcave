@@ -11,8 +11,6 @@ import {
 import Navbar from "../components/Navbar";
 import React, {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
-import {useSelector} from "react-redux";
-import {selectUser} from "../slices/userSlice";
 import {AiFillFolder} from "react-icons/ai";
 import {getIcon} from "../utils/icons";
 import {getFileExtension} from "../utils/utils";
@@ -22,7 +20,6 @@ import { RiFolderReceivedFill } from "react-icons/ri";
 const FileBrowser = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const user = useSelector(selectUser);
     const [isLoading, setIsLoading] = useState(true);
     const [tree, setTree] = useState([]);
 
