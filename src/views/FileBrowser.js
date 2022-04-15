@@ -112,7 +112,7 @@ const FileBrowser = () => {
                                                 <ListItemText
                                                     primary={leaf.path}
                                                     style={{
-                                                        color: leaf.type === "tree" ? "blue" : "black",
+                                                        color: leaf.type === "tree" ? "#1976d2" : "black",
                                                         cursor: leaf.type === "tree" ? "pointer" : "default",
                                                     }}
                                                     onClick={() => {
