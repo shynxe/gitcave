@@ -36,10 +36,11 @@ export const welcomeVariants = {
 
 export const inputVariants = {
    initial: {
-      display: "block",
+      display: "none",
       opacity: 0
    },
    displayed: {
+      display:'block',
       opacity: 1
    },
 };

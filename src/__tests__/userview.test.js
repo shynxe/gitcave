@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
 
 test('user appears on UserView', () => {
-    const spy = jest.spyOn(redux, 'useSelector');
+    const spy = jest.spyOn(redux, 'useSelector');   
     const mockUser = {
         name: "Test User",
         username: "test",
