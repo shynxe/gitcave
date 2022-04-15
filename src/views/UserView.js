@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectUser, setPageSearchAsync, setUserAsync} from "../slices/userSlice";
 import Navbar from "../components/Navbar";
 import Profile from "../components/Profile";
+import Footer from "../components/Footer";
 
 const UserView = () => {
     const user = useSelector(selectUser);
@@ -44,6 +45,9 @@ const UserView = () => {
                                 <SearchInput placeholder="Search repos" onChange={(e) => setSearch(e.target.value)}/>
                                 <RepositoryList isFiltered={debouncedSearch.length > 0}/>
                             </Box>
+                        </Box>
+                        <Box sx={{minHeight: "10vh", width: "95%"}}>
+                            <Footer/>
                         </Box>
                     </Box>
                     :
