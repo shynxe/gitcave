@@ -7,7 +7,7 @@ import {
   ListItemText,
   Grid,
   Typography,
-  IconButton 
+  IconButton
 } from "@mui/material";
 import Navbar from "../components/Navbar";
 import React, { useEffect, useState } from "react";
@@ -15,6 +15,8 @@ import Button from "@mui/material/Button";
 import { useSelector } from "react-redux";
 import { selectUser } from "../slices/userSlice";
 import { AiFillFolder, AiOutlineFile } from "react-icons/ai";
+import {getIcon} from "../utils/icons";
+import {getFileExtension} from "../utils/utils";
 
 const FileBrowser = () => {
   const location = useLocation();
@@ -96,7 +98,7 @@ const FileBrowser = () => {
                       {leaf.type === "tree" ? (
                         <AiFillFolder />
                       ) : (
-                        <AiOutlineFile />
+                          getIcon(getFileExtension(leaf.path))
                       )}
                     </ListItemIcon>
                     <ListItemText
