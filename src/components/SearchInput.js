@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
+import {styled} from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 
 

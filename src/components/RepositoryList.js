@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import RepositoryItem from "./RepositoryItem";
 import Pagination from "@mui/material/Pagination";
 import {useDispatch, useSelector} from "react-redux";
-import {selectUser, setUserAsync, setPageAsync} from "../slices/userSlice";
-import useDebounce from "../utils/useDebounce";
-import SearchInput from "./SearchInput";
+import {selectUser, setPageAsync} from "../slices/userSlice";
 import {Box} from "@mui/material";
 import {PER_PAGE} from "../utils/constants";
 
@@ -25,15 +23,7 @@ const RepositoryList = ({isFiltered}) => {
                     return (
                         <RepositoryItem
                             key={repo.id}
-                            name={repo.name}
-                            url={repo.svn_url}
-                            updated={repo.updated_at}
-                            stars={repo.stargazers_count}
-                            language={repo.language}
-                            forks={repo.forks_count}
-                            license={repo.license}
-                            visibility={repo.visibility}
-                            description={repo.description}
+                            repo={repo}
                             sx={{margin: "10"}}
                         />
                     );
@@ -42,7 +32,8 @@ const RepositoryList = ({isFiltered}) => {
             {!isFiltered && user.repo_count / PER_PAGE >= 1 &&
             <Pagination
                 onChange={(e) => {
-                    handleChange([user.username, e.target.textContent])
+                    handleChange([user.username, e.target.textContent]);
+                    window.scrollTo(0, 0);
                 }}
                 style={{
                     display: "flex",

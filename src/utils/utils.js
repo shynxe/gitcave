@@ -54,22 +54,15 @@ export const getColor = (language) => {
             return "#0298c3";
         case "R":
             return "#198ce7";
-        case "Haskell":
-            return "#29b544";
-        case "Swift":
-            return "#ffac45";
-        case "Scala":
-            return "#c22d40";
-        case "Rust":
-            return "#dea584";
-        case "Kotlin":
-            return "#F18E33";
+        default:
+            return "#000000";
     }
 }
 
 export const createLink = (debouncedSearch, username) => {
-    return "https://api.github.com/search/repositories?" + 'q=' + encodeURIComponent(`${debouncedSearch} in:name,description user:${username}`);
+    return "https://api.github.com/search/repositories?q=" + encodeURIComponent(`${debouncedSearch} in:name,description user:${username}`);
 }
+
 // function that checks if an object is null or empty
 export const isEmpty = (obj) => {
     for (const key in obj)

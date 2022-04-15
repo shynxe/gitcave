@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './views/App';
 import reportWebVitals from './reportWebVitals';
-import {store, persistor} from "./app/store";
+import {persistor, store} from "./app/store";
 import {Provider} from "react-redux";
 import {ThemeProvider} from "@mui/material";
 import theme from "./config/theme";

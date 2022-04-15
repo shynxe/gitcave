@@ -5,17 +5,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import {Box} from "@mui/system";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import {
-    leftDivVariants,
-    rightDivVariants,
-    imageVariants,
-    welcomeVariants,
-    inputVariants,
-} from "../components/utils";
+import {imageVariants, inputVariants, leftDivVariants, rightDivVariants, welcomeVariants,} from "../utils/animations";
 import {motion} from "framer-motion";
 import {clear, setUserAsync} from "../slices/userSlice";
 import {useDispatch} from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function LandingPage() {
     const [secondTransition, setSecondTransition] = useState(false);
@@ -25,10 +19,6 @@ function LandingPage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        dispatch(clear());
-    }, []);
-
     const handleClick = () => {
         if (!secondTransition) {
             setSecondTransition(true);
@@ -36,7 +26,6 @@ function LandingPage() {
                 setButtonValue("Search User");
             }, 2200);
         } else {
-            console.log(`I am seraching the user ${user}`);
             fetch(`https://api.github.com/users/${user}`)
                 .then((response) => {
                     if (response.ok) {
@@ -49,6 +38,7 @@ function LandingPage() {
                 })
                 .then((data) => {
                     if (data) {
+                        dispatch(clear());
                         dispatch(setUserAsync(data.login));
                         navigate("/user");
                         console.log(data);
@@ -149,7 +139,7 @@ function LandingPage() {
                     animate={secondTransition && "equalized"}
                     variants={imageVariants}
                     transition={{duration: "1"}}
-                ></motion.img>
+                />
             </motion.div>
         </div>
     );
