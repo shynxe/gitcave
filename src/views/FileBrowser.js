@@ -3,10 +3,13 @@ import {Box} from "@mui/material";
 import Navbar from "../components/Navbar";
 import React, {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
+import {useSelector} from "react-redux";
+import {selectUser} from "../slices/userSlice";
 
 const FileBrowser = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const user = useSelector(selectUser);
     const [tree, setTree] = useState([]);
 
     const {repo, current_tree} = location.state;
