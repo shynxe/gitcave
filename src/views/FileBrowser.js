@@ -6,17 +6,18 @@ import {
     ListItemIcon,
     ListItemText,
     Grid,
-    Typography, CircularProgress,
+    Typography, CircularProgress, IconButton,
 } from "@mui/material";
 import Navbar from "../components/Navbar";
 import React, {useEffect, useState} from "react";
 import Button from "@mui/material/Button";
 import {useSelector} from "react-redux";
 import {selectUser} from "../slices/userSlice";
-import {AiFillFolder, AiOutlineFile} from "react-icons/ai";
+import {AiFillFolder} from "react-icons/ai";
 import {getIcon} from "../utils/icons";
 import {getFileExtension} from "../utils/utils";
 import RepositoryItem from "../components/RepositoryItem";
+import { RiFolderReceivedFill } from "react-icons/ri";
 
 const FileBrowser = () => {
     const location = useLocation();
@@ -92,7 +93,9 @@ const FileBrowser = () => {
                                                     window.history.back();
                                                 }}
                                             >
-                                                (...)
+                                                <IconButton>
+                                                    <RiFolderReceivedFill/> Go back
+                                                </IconButton>
                                             </div>
                                         )}
                                     </Typography>
