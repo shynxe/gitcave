@@ -27,7 +27,6 @@ const RepositoryItem = ({repo}) => {
                                     state: {
                                         repo: repo,
                                         current_tree: `https://api.github.com/repos/${repo.owner.login}/${repo.name}/git/trees/${repo.default_branch}`
-
                                     },
                                })
                         }
